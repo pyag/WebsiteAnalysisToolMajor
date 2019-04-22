@@ -13,6 +13,3 @@ class Security:
     security_params.append(len(page.cookies))
 
     return security_params
-
-seObject = Security()
-seObject.hasSecurityFeatures('https://www.google.com')
