@@ -5,6 +5,7 @@ import sys
 sys.path.append('../')
 import response_time
 import content
+import security
 
 @bottle.route('/')
 def index():
@@ -21,7 +22,10 @@ def display():
   contentObject = content.Distribution(url)
   distribution_array = contentObject.give_content_distribution()
 
-  return bottle.template('display', responseTime = responses, \
-    content = distribution_array)
+  securityObject = security.Security()
+  security_params = securityObject.hasSecurityFeatures(url)
 
-bottle.run(host = 'localhost', port = 9099)
+  return bottle.template('display', responseTime = responses, \
+    content = distribution_array, security = security_params)
+
+bottle.run(host = 'localhost', port = 9099, debug = True)

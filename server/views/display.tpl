@@ -74,9 +74,8 @@ var load = function(){
 			legendMarkerColor: "grey",
 			legendText: "Level rating is out of 3",
 			dataPoints: [      
-				{ y: 3, label: "HTTPS" },
-				{ y: 1,  label: "DDoS Attack" },
-				{ y: 2,  label: "Cookies" }
+				{ y: {{ !security[0] }}, label: "HTTPS" },
+				{ y: {{ !security[1] }},  label: "Cookies" }
 			]
 		}]
 	});
